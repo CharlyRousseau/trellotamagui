@@ -92,6 +92,7 @@ Pour le design de ce projet j'ai décidé de copier quasiment trait pour trait l
 Une fois connecté il est possible de créer un tableau, puis dans ce tableau il est possible de créer plusieurs listes, dans lesquelles on peut créer plusieurs cartes.
 Pour l'implementation de l'image picker, comme dans trello il est possible de changer l'image de fond d'un tableau (un tableau à une image par défaut).
 Tableaux, listes et cartes ont chacun un titre modifiable en appuyant dessus et il est bien sur possible de les supprimer.
+Il est possible de drag and drop une card pour changer sa position dans la liste.
 
 Je reste disponible sur discord si il y a un quelconque soucis pour lancer le projet.
 
