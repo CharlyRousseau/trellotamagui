@@ -39,6 +39,43 @@ Préciser dans le readme qui à travaillé sur le projet (nom et prenom)
 
 ## Compte Rendu
 
+### Avant de lancer l'application
+
+dans ```api/firebase.ts``` utiliser vos credentials firebase.
+
+Rules pour le storage : 
+
+```
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{userId}/{boardId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
+
+Rules pour la RealTimeDatabase : 
+
+```
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "users": {
+      "$uid": {
+        "boards": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        }
+      }
+    }
+  }
+}
+```
+
+Pour l'authentification :  Adresse e-mail/Mot de passe
+
 ### Lancer l'application
 
 ``` git clone du projet ```
@@ -55,5 +92,7 @@ Pour le design de ce projet j'ai décidé de copier quasiment trait pour trait l
 Une fois connecté il est possible de créer un tableau, puis dans ce tableau il est possible de créer plusieurs listes, dans lesquelles on peut créer plusieurs cartes.
 Pour l'implementation de l'image picker, comme dans trello il est possible de changer l'image de fond d'un tableau (un tableau à une image par défaut).
 Tableaux, listes et cartes ont chacun un titre modifiable en appuyant dessus et il est bien sur possible de les supprimer.
+
+Je reste disponible sur discord si il y a un quelconque soucis pour lancer le projet.
 
 #### Charly Rousseau
